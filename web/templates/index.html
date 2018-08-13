@@ -1,0 +1,36 @@
+<html>
+<script language="text/javascript">
+function keep() {
+    var name = ["A", "B"];
+    alert(name[1]);
+}
+</script>
+
+<body>
+<p>Players</p>
+<form action='/match' method='POST' autocomplete="on">
+    <input type='text' name='name' value='Sao' id='0'><br />
+    <input type='text' name='name' value='Reggie' id='1'><br />
+    <input type='text' name='name' id='2'><br />
+    <input type='text' name='name' value='B' id='3'><br />
+    <input type='text' name='name' value='C' id='4'><br />
+    <input type='text' name='name' value='D' id='5'><br />
+    <input type='text' name='name' value='E' id='6'><br />
+    <input type='text' name='name' id='7'><br />
+    <input type='text' name='name' id='8'><br />
+    <input type='text' name='name' id='9'><br />
+    <input type='submit' value='Submit'>
+</form>
+
+
+<p>Matches</p>
+<ol id='matches'>
+{% for match in matches %}
+    <li>
+       <input type='checkbox' />{{ match[0] }}/{{ match[1] }} | {{ match[2] }}/{{ match[3] }}
+    </li>
+{% endfor %}
+</ol>
+
+</body>
+</html>

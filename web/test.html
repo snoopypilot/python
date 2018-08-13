@@ -1,0 +1,53 @@
+<html>
+<script language="javascript">
+/*
+if(typeof names != 'undefined') {
+    var name = JSON.parse(localStorage.getItem('names'));
+    for(i=0; i<10; i++) {
+        document.getElementById(i).value = name[i];
+    }
+}
+*/
+var name = ['A', 'B'];
+alert(name.length);
+/*
+function submitted() {
+    for(i=0; i<10; i++) {
+        //name[i] = document.getElementById('1').value;
+        alert(name[i]);
+    }
+    localStorage.setItem("names", JSON.stringify(name));
+
+    location.reload();
+    return false;
+}
+*/
+</script>
+<body>
+<p>Players</p>
+<form action='/match' method='POST' onsubmit='return submitted();'>
+    <input type='text' name='name' value='Sao' id='0'><br />
+    <input type='text' name='name' value='Reggie' id='1'><br />
+    <input type='text' name='name' value='A' id='2'><br />
+    <input type='text' name='name' value='B' id='3'><br />
+    <input type='text' name='name' value='C' id='4'><br />
+    <input type='text' name='name' value='D' id='5'><br />
+    <input type='text' name='name' value='E' id='6'><br />
+    <input type='text' name='name' id='7'><br />
+    <input type='text' name='name' id='8'><br />
+    <input type='text' name='name' id='9'><br />
+    <input type='submit' value='Submit'>
+</form>
+
+
+<p>Matches</p>
+<ol id='matches'>
+{% for match in matches %}
+    <li>
+       <input type='checkbox' />{{ match[0] }}/{{ match[1] }} | {{ match[2] }}/{{ match[3] }}
+    </li>
+{% endfor %}
+</ol>
+
+</body>
+</html>
